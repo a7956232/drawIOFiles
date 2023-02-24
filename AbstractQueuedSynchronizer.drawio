@@ -1,20 +1,26 @@
-<mxfile host="app.diagrams.net" modified="2023-02-23T09:23:18.335Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="ku8v97oTb2Q23qieVrA8" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-24T08:20:52.601Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="7sJHYOlAq1JzZ1zIUqfB" version="20.8.23" type="github">
   <diagram name="第 1 页" id="LRloTH8eMVILekBXENbI">
-    <mxGraphModel dx="2261" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2261" dy="1933" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-1" value="&lt;pre style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot; face=&quot;Helvetica&quot;&gt;AbstractQueuedSynchronizer&lt;/font&gt;&lt;/pre&gt;" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="240" y="60" width="270" height="440" as="geometry" />
+          <mxGeometry x="240" y="60" width="280" height="510" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-2" value="private volatile int state;&#xa;int类型字段，代表同步状态，给子类提供了get和set方法，为多线程下的更新修改提供了compareAndSetState方法" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
           <mxGeometry x="10" y="40" width="250" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-3" value="static final class Node&#xa;内部类Node，同步队列与条件等待队列的节点" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=#FFFFFF;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-3" value="static final class Node&#xa;内部类Node，同步队列与条件等待队列的节点" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
           <mxGeometry x="10" y="120" width="250" height="70" as="geometry" />
         </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-11" value="acquire(int arg)&#xa;以独占模式获取，先以子类实现tryAcquire尝试获取，失败则以独占模式加入同步队列后阻塞线程等待唤醒" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="280" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-12" value="private transient volatile Node head;&#xa;private transient volatile Node tail;&#xa;同步队列的头尾节点，提供了compareAndSetHead和compareAndSetTail" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="200" width="250" height="70" as="geometry" />
+        </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-6" value="AbstractQueuedSynchronizer.Node" style="swimlane;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="1">
-          <mxGeometry x="-130" y="97.5" width="250" height="482.5" as="geometry" />
+          <mxGeometry x="-130" y="97.5" width="250" height="472.5" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-7" value="static final Node SHARED = new Node();&lt;br&gt;static final Node EXCLUSIVE = null;&lt;br&gt;Node nextWaiter;&lt;br&gt;nextWaiter字段在同步队列中时用于标记节点的模式，共享模式或独占模式。&lt;br&gt;在等待队列中时指向队列中的下一个节点，等待队列由此形成单向链表" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-6">
           <mxGeometry x="10" y="32.5" width="230" height="107.5" as="geometry" />
@@ -29,6 +35,17 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="150" y="215" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2nZ1FhQPAk2Kf0jsU2-3-2" target="2nZ1FhQPAk2Kf0jsU2-3-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="136.25" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-17" value="state" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-40" width="440" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-18" value="ReentrantLock中调用compareAndSetState方法将state值更新为1的线程获取到锁" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-17">
+          <mxGeometry x="30" y="10" width="400" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
