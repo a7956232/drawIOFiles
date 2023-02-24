@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2023-02-24T08:20:52.601Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="7sJHYOlAq1JzZ1zIUqfB" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-24T09:20:50.925Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="esRvMc68VFFO5CP-bt6O" version="20.8.23" type="github">
   <diagram name="第 1 页" id="LRloTH8eMVILekBXENbI">
     <mxGraphModel dx="2261" dy="1933" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-1" value="&lt;pre style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot; face=&quot;Helvetica&quot;&gt;AbstractQueuedSynchronizer&lt;/font&gt;&lt;/pre&gt;" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="240" y="60" width="280" height="510" as="geometry" />
+          <mxGeometry x="240" y="60" width="270" height="720" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-2" value="private volatile int state;&#xa;int类型字段，代表同步状态，给子类提供了get和set方法，为多线程下的更新修改提供了compareAndSetState方法" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
           <mxGeometry x="10" y="40" width="250" height="70" as="geometry" />
@@ -13,11 +13,26 @@
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-3" value="static final class Node&#xa;内部类Node，同步队列与条件等待队列的节点" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
           <mxGeometry x="10" y="120" width="250" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-11" value="acquire(int arg)&#xa;以独占模式获取，先以子类实现tryAcquire尝试获取，失败则以独占模式加入同步队列后阻塞线程等待唤醒" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-11" value="acquire&#xa;以独占模式获取，先以子类实现tryAcquire尝试获取，失败则调用addWaiter在同步队列尾部加入一个独占模式节点后调用acquireQueued方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
           <mxGeometry x="10" y="280" width="250" height="70" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-12" value="private transient volatile Node head;&#xa;private transient volatile Node tail;&#xa;同步队列的头尾节点，提供了compareAndSetHead和compareAndSetTail" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
           <mxGeometry x="10" y="200" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-19" value="acquireInterruptibly&#xa;同acquire（会响应线程中断标记），tryAcquire失败调用doAcquireInterruptibly方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="360" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-21" value="tryAcquireNanos&#xa;同acquire（会响应线程中断标记和超时时间），tryAcquire失败调用doAcquireNanos方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="420" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-22" value="acquireShared&#xa;以共享模式获取，先以子类实现tryAcquireShared尝试获取，失败则调用doAcquireShared方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="480" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-23" value="acquireSharedInterruptibly&#xa;同acquireShared（会响应线程中断标记），tryAcquireShared失败调用doAcquireSharedInterruptibly方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="550" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-25" value="tryAcquireSharedNanos&#xa;同acquireShared（会响应线程中断标记和超时时间），tryAcquireShared失败调用doAcquireSharedNanos方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;whiteSpace=wrap;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="620" width="250" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-6" value="AbstractQueuedSynchronizer.Node" style="swimlane;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="-130" y="97.5" width="250" height="472.5" as="geometry" />
