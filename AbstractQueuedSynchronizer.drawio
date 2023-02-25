@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-25T07:46:06.649Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="pQ8lj54Frwb0PNetS8a6" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-25T09:01:49.060Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="DSoZBtuq9LB622CY0lYb" version="20.8.23" type="github">
   <diagram name="第 1 页" id="LRloTH8eMVILekBXENbI">
     <mxGraphModel dx="2261" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -63,13 +63,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-46" value="尝试独占/共享获取实现" style="swimlane;whiteSpace=wrap;html=1;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="1">
-          <mxGeometry x="600" y="620" width="380" height="340" as="geometry" />
+          <mxGeometry x="600" y="625" width="380" height="490" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-47" value="ReentrantLock：tryAcquire，state代表重入数，更新state值由0变为1，则获取成功，state不为0时，exclusiveOwnerThread为当前线程，更新state值+1，如state值未超过int上限，则重入获取成功。&lt;br&gt;公平锁：先判断是否需要排队&lt;br&gt;非公平锁：直接尝试更新" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;align=left;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-46">
           <mxGeometry x="10" y="30" width="360" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-49" value="ReentrantReadWriteLock：state高16位记录读锁（共享锁）持有数，低16位记录写锁（独占锁）重入数。&lt;br&gt;WriteLock：&lt;br&gt;ReadLock：" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;align=left;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-46">
-          <mxGeometry x="10" y="120" width="360" height="80" as="geometry" />
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-49" value="ReentrantReadWriteLock：state高16位记录读锁（共享锁）持有数，低16位记录写锁（独占锁）重入数。&lt;br&gt;WriteLock：tryAcquire，state值不为0时，根据state值计算低16位写锁数量w（w=state&amp;amp;((1&amp;lt;&amp;lt;16)-1)）①w为0（有包括本线程在内的线程持有读锁，即同一线程持有读锁不能重复升级持有写锁）②w不为0但exclusiveOwnerThread不为当前线程（有其他线程持有写锁）③w达到最大值（1&amp;lt;&amp;lt;16-1）此三种情况都获取失败。state为0或者当前线程写锁重入且未达到w最大值，更新state值+1成功则获取成功。&lt;br&gt;ReadLock：tryAcquireShared，根据state计算写锁数量w，如果w不为0且exclusiveOwnerThread不为当前线程，获取失败。w为0或w不为0但exclusiveOwnerThread为当前线程（持有写锁的线程可以重复降级持有读锁），则根据state计算读锁数量r，r未达到最大值（1&amp;lt;&amp;lt;16-1），更新state值+(1&amp;lt;&amp;lt;16)成功则获取成功。对于非公平锁，上述情况只包含了持有写锁无视排队重入读锁和不需要排队的读锁获取（包括持有读锁重入），还有一种情况当前线程已经持有读锁，可以无视需要排队直接重入获取读锁，该情况的处理在fullTryAcquireShared方法中，具体是每个线程都持有一个ThreadLocal的HoldCounter记录了本线程持有的读锁获取数（该数在线程每次获取到读锁时+1），在没有写锁持有者时尝试获取读锁但需要排队的情况下，检查本线程的HoldCounter数，如果不为0则代表本线程已经持有过读锁，则可以无视排队进行读锁重入直接更新state值，更新成功则获取成功。" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;align=left;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-46">
+          <mxGeometry x="10" y="120" width="360" height="340" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
