@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-25T01:25:45.937Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="jziRvJIz-hhujNtfCufh" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-25T07:46:06.649Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="pQ8lj54Frwb0PNetS8a6" version="20.8.23" type="github">
   <diagram name="第 1 页" id="LRloTH8eMVILekBXENbI">
     <mxGraphModel dx="2261" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -11,31 +11,34 @@
           <mxGeometry x="10" y="40" width="250" height="70" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-3" value="static final class Node&#xa;内部类Node，同步队列与条件等待队列的节点" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="120" width="250" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-11" value="acquire&#xa;以独占模式获取，先以子类实现tryAcquire尝试获取，失败则调用addWaiter在同步队列尾部加入一个独占模式节点后调用acquireQueued方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="280" width="250" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-12" value="private transient volatile Node head;&#xa;private transient volatile Node tail;&#xa;同步队列的头尾节点，提供了compareAndSetHead和compareAndSetTail" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
           <mxGeometry x="10" y="200" width="250" height="70" as="geometry" />
         </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-11" value="acquire&#xa;以独占模式获取，先以子类实现tryAcquire尝试获取，失败则调用addWaiter在同步队列尾部加入一个独占模式节点后调用acquireQueued方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="360" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-12" value="private transient volatile Node head;&#xa;private transient volatile Node tail;&#xa;同步队列的头尾节点，提供了compareAndSetHead和compareAndSetTail" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="280" width="250" height="70" as="geometry" />
+        </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-19" value="acquireInterruptibly&#xa;同acquire（会响应线程中断标记），tryAcquire失败调用doAcquireInterruptibly方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="360" width="250" height="50" as="geometry" />
+          <mxGeometry x="10" y="440" width="250" height="50" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-21" value="tryAcquireNanos&#xa;同acquire（会响应线程中断标记和超时时间），tryAcquire失败调用doAcquireNanos方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="420" width="250" height="50" as="geometry" />
+          <mxGeometry x="10" y="500" width="250" height="50" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-22" value="acquireShared&#xa;以共享模式获取，先以子类实现tryAcquireShared尝试获取，失败则调用doAcquireShared方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="480" width="250" height="60" as="geometry" />
+          <mxGeometry x="10" y="560" width="250" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-23" value="acquireSharedInterruptibly&#xa;同acquireShared（会响应线程中断标记），tryAcquireShared失败调用doAcquireSharedInterruptibly方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="550" width="250" height="60" as="geometry" />
+          <mxGeometry x="10" y="630" width="250" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-25" value="tryAcquireSharedNanos&#xa;同acquireShared（会响应线程中断标记和超时时间），tryAcquireShared失败调用doAcquireSharedNanos方法" style="rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="620" width="250" height="60" as="geometry" />
+          <mxGeometry x="10" y="700" width="250" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-26" value="tryAcquire&#xa;tryAcquireShared&#xa;尝试独占/共享获取，交由子类实现具体的获取逻辑，主要是通过操作state的值来判断获取成功与否" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;fontStyle=2" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="690" width="250" height="80" as="geometry" />
+          <mxGeometry x="10" y="770" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-48" value="private transient Thread exclusiveOwnerThread;&#xa;独占模式获取同步成功的线程" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="120" width="250" height="70" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-6" value="AbstractQueuedSynchronizer.Node" style="swimlane;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="-130" y="97.5" width="250" height="472.5" as="geometry" />
@@ -53,6 +56,20 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="150" y="215" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=#000000;" edge="1" parent="1" source="2nZ1FhQPAk2Kf0jsU2-3-26" target="2nZ1FhQPAk2Kf0jsU2-3-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-46" value="尝试独占/共享获取实现" style="swimlane;whiteSpace=wrap;html=1;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="600" y="620" width="380" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-47" value="ReentrantLock：tryAcquire，state代表重入数，更新state值由0变为1，则获取成功，state不为0时，exclusiveOwnerThread为当前线程，更新state值+1，如state值未超过int上限，则重入获取成功。&lt;br&gt;公平锁：先判断是否需要排队&lt;br&gt;非公平锁：直接尝试更新" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;align=left;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-46">
+          <mxGeometry x="10" y="30" width="360" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-49" value="ReentrantReadWriteLock：state高16位记录读锁（共享锁）持有数，低16位记录写锁（独占锁）重入数。&lt;br&gt;WriteLock：&lt;br&gt;ReadLock：" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;align=left;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-46">
+          <mxGeometry x="10" y="120" width="360" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
