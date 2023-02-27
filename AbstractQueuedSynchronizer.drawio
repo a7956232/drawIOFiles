@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-27T01:48:35.189Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="acXTEyyKX67EeMWUaKkP" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-27T02:58:07.196Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="t5Bci-EOwVEwpoFzF1RP" version="20.8.23" type="github">
   <diagram name="第 1 页" id="LRloTH8eMVILekBXENbI">
     <mxGraphModel dx="2261" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -77,8 +77,8 @@
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-51" value="CountDownLatch：&lt;b&gt;&lt;font color=&quot;#ff0080&quot;&gt;tryAcquireShared&lt;/font&gt;&lt;/b&gt;，倒计时锁存器在实例化时初始化了一个state值，线程调用await时，即在尝试获取，只要state值不为0，获取就不成功一直处于阻塞。" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;align=left;" parent="2nZ1FhQPAk2Kf0jsU2-3-46" vertex="1">
           <mxGeometry x="10" y="555" width="360" height="65" as="geometry" />
         </mxCell>
-        <mxCell id="asV-0-eIZgmfxrPLfpH7-1" value="AbstractQueuedSynchronizer&#xa;提供了一个凭证state，线程通过操作或判断该值达成获取/释放凭证成功与否的条件。&#xa;提供了以独占/共享持有凭证的模式和记录以独占模式持有当前凭证的线程。&#xa;提供了一个同步队列，该队列为线程提供了一套完整的获取凭证失败排队阻塞的机制。&#xa;提供了一套释放独占/共享凭证后唤醒同步队列中的阻塞线程重新尝试获取凭证的机制。&#xa;提供了一个等待队列，供持有凭证的线程让出凭证进入等待队列，等待之后获取到凭证的线程或者主线程将其唤醒后重新进入同步队列排队尝试获取凭证的机制。&#xa;ReentrantLock、ReentrantReadWriteLock、Semaphore、CountDownLatch、ThreadPoolExecutor.Worker等都是利用上述机制中的部分或者全部实现的。" style="rounded=0;whiteSpace=wrap;align=left;" vertex="1" parent="1">
-          <mxGeometry x="540" y="60" width="580" height="140" as="geometry" />
+        <mxCell id="asV-0-eIZgmfxrPLfpH7-1" value="AbstractQueuedSynchronizer&#xa;提供了一个数值state和对该值的原子更新操作，线程通过操作或判断该值达成凭证的获取/释放。&#xa;提供了以独占/共享获取凭证的模式和记录以独占模式持有当前凭证的线程。&#xa;提供了一个同步队列，为线程提供了一套完整的获取凭证失败后排队阻塞的机制。&#xa;提供了一套释放凭证后以独占/共享的方式唤醒同步队列中的阻塞线程重新尝试获取凭证的机制。&#xa;提供了一个等待队列，供持有凭证的线程让出凭证进入等待队列，等待之后获取到凭证的线程或者主线程将其唤醒后重新进入同步队列排队尝试获取凭证的机制。&#xa;提供了处理线程中断标记和超时时间设置的机制。&#xa;ReentrantLock、ReentrantReadWriteLock、Semaphore、CountDownLatch、ThreadPoolExecutor.Worker等都是利用上述机制中的部分或者全部实现的。" style="rounded=0;whiteSpace=wrap;align=left;" vertex="1" parent="1">
+          <mxGeometry x="540" y="60" width="590" height="160" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
