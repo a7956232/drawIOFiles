@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2023-02-27T09:11:33.766Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="PtftvWXcPuW4Gd_keYxs" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-28T03:09:39.367Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="3Z2rVI96UXiTGax9M1oO" version="20.8.23" type="github">
   <diagram name="第 1 页" id="LRloTH8eMVILekBXENbI">
     <mxGraphModel dx="2261" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-1" value="&lt;pre style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot; face=&quot;Helvetica&quot;&gt;AbstractQueuedSynchronizer&lt;/font&gt;&lt;/pre&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="240" y="60" width="270" height="1750" as="geometry" />
+          <mxGeometry x="240" y="60" width="270" height="2040" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-2" value="private volatile int state;&#xa;int类型字段，代表同步状态，给子类提供了get和set方法，为多线程下的更新修改提供了compareAndSetState方法" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" parent="2nZ1FhQPAk2Kf0jsU2-3-1" vertex="1">
           <mxGeometry x="10" y="40" width="250" height="70" as="geometry" />
@@ -40,14 +40,14 @@
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-48" value="private transient Thread exclusiveOwnerThread;&#xa;独占模式获取同步成功的线程" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;" parent="2nZ1FhQPAk2Kf0jsU2-3-1" vertex="1">
           <mxGeometry x="10" y="120" width="250" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="asV-0-eIZgmfxrPLfpH7-2" value="①acquireQueued&#xa;②doAcquireInterruptibly&#xa;③doAcquireNanos&#xa;④doAcquireShared&#xa;⑤doAcquireSharedInterruptibly&#xa;⑥doAcquireSharedNanos&#xa;相同的是都是addWaiter新建节点入队（第一个入队的会先新建一个虚的头节点）后自旋判断是否是头节点的下一个节点，是的话就尝试获取，不是或者获取失败的话就判断前一个节点的waitStatus是否为Node.SIGNAL，是的话阻塞等待被唤醒后继续重新自旋尝试，不是的话判断前一个节点如果为CANCELLED则向前遍历清除遇到的CANCELLED节点，直到不为CANCELLED后将其更新为SIGNAL然后重新走一遍自旋。&#xa;不同的是&#xa;1.阻塞被唤醒后继续时响应中断的处理（①④在获取成功后给线程重新打上中断标记，其他在唤醒后如果有中断标记则直接抛异常中断自旋并且将Node做取消处理）。&#xa;2.③⑥增加了对超时时间的处理，阻塞到达超时时间将自动唤醒，如未获取成功且超时时间小于等于0则中断自旋失败返回。&#xa;3.获取成功后的处理不同，①②③为独占模式，获取成功后将本节点设置为新的虚头节点，④⑤⑥为共享模式，获取成功后除了将本节点设置为新的虚头节点外，还会传播处理下一个共享节点的唤醒判断：共享节点获取成功→设置为新的头节点→下一个节点为共享节点→通过触发共享节点释放逻辑触发判断当前头节点的下一个节点是否需要被唤醒（头节点的waitStatus是否为Node.SIGNAL）→下一个共享节点被唤醒且获取成功，循环到当前链条头部。共享节点的获取成功将依此链条向后逐个传播，直到下一个节点为非共享节点或下一个共享节点获取失败后阻塞（共享名额不足）。" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;align=left;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="860" width="250" height="540" as="geometry" />
+        <mxCell id="asV-0-eIZgmfxrPLfpH7-2" value="①acquireQueued&#xa;②doAcquireInterruptibly&#xa;③doAcquireNanos&#xa;④doAcquireShared&#xa;⑤doAcquireSharedInterruptibly&#xa;⑥doAcquireSharedNanos&#xa;相同的是都是addWaiter新建节点入队（第一个入队的会先新建一个虚的头节点）后自旋判断是否是头节点的下一个节点，是的话就尝试获取，不是或者获取失败的话就判断前一个节点的waitStatus是否为Node.SIGNAL，是的话阻塞等待被唤醒后继续重新自旋尝试，不是的话判断前一个节点如果为CANCELLED则向前遍历清除遇到的CANCELLED节点，直到不为CANCELLED后将其更新为SIGNAL然后重新走一遍自旋。&#xa;不同的是&#xa;1.阻塞被唤醒后继续时响应中断的处理（①④在获取成功后给线程重新打上中断标记，其他在唤醒后如果有中断标记则直接抛异常中断自旋并且将Node做取消处理）。&#xa;2.③⑥增加了对超时时间的处理，阻塞到达超时时间将自动唤醒，如未获取成功且超时时间小于等于0则中断自旋失败返回。&#xa;3.获取成功后的处理不同，①②③为独占模式，获取成功后将本节点设置为新的虚头节点，④⑤⑥为共享模式，获取成功后除了将本节点设置为新的虚头节点外，还会传播处理下一个共享节点的唤醒判断：共享节点获取成功→设置为新的头节点→下一个节点为共享节点→通过触发共享节点释放逻辑触发判断当前头节点的下一个节点是否需要被唤醒（头节点的waitStatus是否为Node.SIGNAL）→下一个共享节点被唤醒且获取成功，循环到当前链条头部。共享节点的获取成功将依此链条向后逐个传播，直到下一个节点为非共享节点或下一个共享节点获取失败后阻塞（共享名额不足）。这个唤醒链只是最理想的一种情况，真正的共享节点传播唤醒过程更加复杂，涉及唤醒线程与不断的被唤醒线程并发执行的情形，详见doReleaseShared方法。" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;verticalAlign=top;spacing=0;align=left;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="860" width="250" height="580" as="geometry" />
         </mxCell>
         <mxCell id="asV-0-eIZgmfxrPLfpH7-3" value="release&#xa;独占模式释放，先以子类实现tryRelease尝试释放，成功后如果当前同步队列虚头节点不为空且waitStatus不为0则尝试唤醒头节点下一个节点的线程，如果下一个节点的线程为空或者waitStatus为Node.CANCELLED，则从尾节点向前遍历找到最前一个不为CANCELLED的非头节点，找到的话则唤醒该节点的线程让其继续之前的自旋" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="1410" width="250" height="140" as="geometry" />
+          <mxGeometry x="10" y="1450" width="250" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="asV-0-eIZgmfxrPLfpH7-4" value="releaseShared&#xa;共享模式释放，先以子类实现tryReleaseShared尝试释放，成功后" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
-          <mxGeometry x="10" y="1560" width="250" height="110" as="geometry" />
+        <mxCell id="asV-0-eIZgmfxrPLfpH7-4" value="releaseShared&#xa;共享模式释放，先以子类实现tryReleaseShared尝试释放，成功后执行doReleaseShared方法，这个方法一种情况是在前面提到的共享节点获取成功后会在传播唤醒后继共享节点时执行，另一种情况就是在此处由共享节点释放时执行，该方法是一个不断自旋的过程，自旋中断的条件是自旋的一次过程后头节点没发生变化，但在自旋的过程会有可能不断唤醒新的后继共享节点线程，新线程获取成功后会并发重新设置头节点，并且会并发进入唤醒后继共享节点执行该方法，多条线程同时在自旋逻辑中的复杂情况，但不论是依次进入自旋逐个唤醒的理想情况还是并发唤醒的复杂情况，最终目的都是共享状态被获取成功了或者释放成功了后传播唤醒后继或并发产生的后继共享节点，直到没有可唤醒的后继共享节点（到达队尾或者后继节点为独占节点）或者后继被唤醒的共享节点获取失败（共享名额不足，只能重新阻塞等待其他已经获取的共享节点释放后再次被唤醒获取）" style="rounded=0;whiteSpace=wrap;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=12;verticalAlign=top;spacing=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="2nZ1FhQPAk2Kf0jsU2-3-1">
+          <mxGeometry x="10" y="1600" width="250" height="300" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-6" value="AbstractQueuedSynchronizer.Node" style="swimlane;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" parent="1" vertex="1">
           <mxGeometry x="-130" y="97.5" width="250" height="472.5" as="geometry" />
