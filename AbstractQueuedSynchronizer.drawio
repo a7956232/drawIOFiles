@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-01T03:55:25.825Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="Pn1eZWmVP6YkPeD_R6zI" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-01T06:18:06.963Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26" etag="2pW3SI3VxNkxFTtLlIxZ" version="20.8.23" type="github">
   <diagram name="第 1 页" id="LRloTH8eMVILekBXENbI">
     <mxGraphModel dx="2261" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -56,7 +56,7 @@
           <mxGeometry x="10" y="2000" width="250" height="100" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-6" value="AbstractQueuedSynchronizer.Node" style="swimlane;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" parent="1" vertex="1">
-          <mxGeometry x="-130" y="97.5" width="250" height="472.5" as="geometry" />
+          <mxGeometry x="-120" y="58.75" width="250" height="472.5" as="geometry" />
         </mxCell>
         <mxCell id="2nZ1FhQPAk2Kf0jsU2-3-7" value="static final Node SHARED = new Node();&lt;br&gt;static final Node EXCLUSIVE = null;&lt;br&gt;Node nextWaiter;&lt;br&gt;nextWaiter字段在同步队列中时用于标记节点的模式，共享模式或独占模式。&lt;br&gt;在等待队列中时指向队列中的下一个节点，等待队列由此形成单向链表" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" parent="2nZ1FhQPAk2Kf0jsU2-3-6" vertex="1">
           <mxGeometry x="10" y="32.5" width="230" height="107.5" as="geometry" />
@@ -114,7 +114,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="asV-0-eIZgmfxrPLfpH7-13" value="AbstractQueuedSynchronizer.ConditionObject " style="swimlane;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="1">
-          <mxGeometry x="-120" y="1840" width="280" height="710" as="geometry" />
+          <mxGeometry x="-120" y="1675" width="280" height="870" as="geometry" />
         </mxCell>
         <mxCell id="asV-0-eIZgmfxrPLfpH7-14" value="private transient Node firstWaiter;&lt;br&gt;private transient Node lastWaiter;&lt;br&gt;等待队列的头尾节点，节点的nextWaiter指向下一个节点，形成单向链表" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="asV-0-eIZgmfxrPLfpH7-13">
           <mxGeometry x="10" y="32.5" width="260" height="67.5" as="geometry" />
@@ -124,6 +124,9 @@
         </mxCell>
         <mxCell id="asV-0-eIZgmfxrPLfpH7-19" value="①void awaitUninterruptibly()&lt;br&gt;②void await()&lt;br&gt;③long awaitNanos(long nanosTimeout)&lt;br&gt;④boolean awaitUntil(Date deadline)&lt;br&gt;⑤boolean await(long time, TimeUnit unit)&lt;br&gt;在等待队列尾部新增一个持有当前线程的条件节点，同时清理队列中的cancelled节点，保存state值后释放保存的state，即将state归零，唤醒同步队列中下一个的线程去获取，只要当前节点未回到同步队列，就将当前线程阻塞挂起，当收到通知信号时，节点会从等待队列重新加入到同步队列，在同步队列中等待前一个节点将其唤醒，被唤醒后以保存的state（主要是为了维持暂停时释放的重入次数）执行acquireQueued方法在同步队列等待获取。上述几个方法不同的地方在于对线程中断状态的处理和线程暂停时限的处理，①在被唤醒后，仅仅只是在同步对列中重新获取成功后恢复中断标记而不会对线程中断有任何响应处理；②在被唤醒后会对中断状态进行判断，如果是在收到通知信号前就被中断（当前方法不会有这种情况，只有有暂停时限的方法会在收到通知信号前由于时限结束被唤醒而处理中断判断，当前方法只能在收到通知信号后才能被唤醒，继而不可能做收到通知信号前的中断判断，当然这只是正常情况，不排除有外部逻辑在收到通知信号前手动唤醒了线程，不然该方法就没有存在的意义），则在被唤醒后将抛出中断异常，如果是收到通知信号之后的中断，则在被唤醒后也只会恢复中断标记；③④⑤对中断的处理和②一样，只是用不同的方式实现了暂停时限，时限一到就会无视通知信号唤醒线程，另外的不同就是③会将唤醒后的剩余时限返回供后续使用，④⑤只会返回是否超时唤醒的布尔值。" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;align=left;" vertex="1" parent="asV-0-eIZgmfxrPLfpH7-13">
           <mxGeometry x="10" y="190" width="260" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="asV-0-eIZgmfxrPLfpH7-20" value="①signal&lt;br&gt;②signalAll&lt;br&gt;信号通知，将当前等待队列中的节点移动到同步队列当中，①会移动从队列头部开始找到的第一个非取消状态的节点，取消状态的节点会被清理，并且节点移动到同步队列后，同步队列中的上一个节点如果是取消状态或者无法更新上一个节点为SIGNAL状态，则会立即唤醒当前线程；②会将当前等待队列的所有节点从头部开始全部移动到同步对列中。" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=default;" vertex="1" parent="asV-0-eIZgmfxrPLfpH7-13">
+          <mxGeometry x="10" y="690" width="260" height="150" as="geometry" />
         </mxCell>
         <mxCell id="asV-0-eIZgmfxrPLfpH7-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontColor=#0000FF;" edge="1" parent="1" source="asV-0-eIZgmfxrPLfpH7-12" target="asV-0-eIZgmfxrPLfpH7-13">
           <mxGeometry relative="1" as="geometry" />
