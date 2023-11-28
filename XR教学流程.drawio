@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2023-11-28T03:29:59.007Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63" etag="5NEAxj0JvOBOdDrCh9-2" version="22.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-28T07:10:08.527Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63" etag="Ga4kbHzLpQpEvQVj5yor" version="22.1.4" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1415" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="VejBwy9pR2rbF7fQh3G--0" value="平台端" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="49" y="140" width="730" height="700" as="geometry" />
+          <mxGeometry x="49" y="140" width="451" height="660" as="geometry" />
         </mxCell>
         <mxCell id="VejBwy9pR2rbF7fQh3G--3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="VejBwy9pR2rbF7fQh3G--0" source="VejBwy9pR2rbF7fQh3G--1" target="VejBwy9pR2rbF7fQh3G--2">
           <mxGeometry relative="1" as="geometry" />
@@ -54,6 +54,36 @@
         </mxCell>
         <mxCell id="VejBwy9pR2rbF7fQh3G--20" value="资源查询，课程管理" style="whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--0">
           <mxGeometry x="96" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--22" value="教师端" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="620" y="570" width="350" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="VejBwy9pR2rbF7fQh3G--22" source="VejBwy9pR2rbF7fQh3G--23" target="VejBwy9pR2rbF7fQh3G--27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--23" value="学校账号" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--22">
+          <mxGeometry x="60" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--26" value="教师账号" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--22">
+          <mxGeometry x="60" y="230" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--27" value="查询所属学校资源，授权连接的学生端下载或更新资源" style="whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--22">
+          <mxGeometry x="125" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--29" value="学生端" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1030" y="585" width="430" height="375" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="VejBwy9pR2rbF7fQh3G--29" source="VejBwy9pR2rbF7fQh3G--30" target="VejBwy9pR2rbF7fQh3G--32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--30" value="连接到学校账号的教师端，连接成功时会获取到学校资源配置列表" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--29">
+          <mxGeometry x="20" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--31" value="连接到教师账号的教师端" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--29">
+          <mxGeometry x="20" y="205" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--32" value="本地资源列表配置文件与从教师端获取的学校资源配置列表对比，得到待下载或更新的差异文件列表，上报给教师端，等待授权下载" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--29">
+          <mxGeometry x="230" y="42.5" width="190" height="65" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
