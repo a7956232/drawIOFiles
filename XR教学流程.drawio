@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2023-11-28T02:45:42.731Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63" etag="kkU2na-3CGGSxDPsXfhe" version="22.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-28T03:29:59.007Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63" etag="5NEAxj0JvOBOdDrCh9-2" version="22.1.4" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1415" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="VejBwy9pR2rbF7fQh3G--0" value="平台端" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="80" y="140" width="770" height="560" as="geometry" />
+          <mxGeometry x="49" y="140" width="730" height="700" as="geometry" />
         </mxCell>
         <mxCell id="VejBwy9pR2rbF7fQh3G--3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="VejBwy9pR2rbF7fQh3G--0" source="VejBwy9pR2rbF7fQh3G--1" target="VejBwy9pR2rbF7fQh3G--2">
           <mxGeometry relative="1" as="geometry" />
@@ -31,6 +31,9 @@
         <mxCell id="VejBwy9pR2rbF7fQh3G--13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="VejBwy9pR2rbF7fQh3G--0" source="VejBwy9pR2rbF7fQh3G--5" target="VejBwy9pR2rbF7fQh3G--12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="VejBwy9pR2rbF7fQh3G--0" source="VejBwy9pR2rbF7fQh3G--5" target="VejBwy9pR2rbF7fQh3G--14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="VejBwy9pR2rbF7fQh3G--5" value="学校账号" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--0">
           <mxGeometry x="70" y="360" width="30" height="60" as="geometry" />
         </mxCell>
@@ -42,6 +45,15 @@
         </mxCell>
         <mxCell id="VejBwy9pR2rbF7fQh3G--12" value="资源查询，资源下载" style="whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--0">
           <mxGeometry x="135" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="VejBwy9pR2rbF7fQh3G--0" source="VejBwy9pR2rbF7fQh3G--14" target="VejBwy9pR2rbF7fQh3G--20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--14" value="教师账号" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--0">
+          <mxGeometry x="31" y="530" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VejBwy9pR2rbF7fQh3G--20" value="资源查询，课程管理" style="whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="VejBwy9pR2rbF7fQh3G--0">
+          <mxGeometry x="96" y="530" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
