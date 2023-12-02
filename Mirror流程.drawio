@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2023-12-02T08:50:36.279Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63" etag="fRnF9PVwOJD--YnKcyDD" version="22.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-02T09:02:22.244Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63" etag="_qzOSTtFlArZSkH5FGAG" version="22.1.5" type="github">
   <diagram name="第 1 页" id="Ka6uEoUc9T6Ho-txO_6K">
-    <mxGraphModel dx="2242" dy="1913" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2182" dy="1874" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="i4PzeWImW-_iDJPN7Owe-1" value="Server" style="swimlane;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="-520" y="300" width="650" height="871.25" as="geometry" />
+          <mxGeometry x="-520" y="300" width="810" height="1170" as="geometry" />
         </mxCell>
         <mxCell id="i4PzeWImW-_iDJPN7Owe-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-1" source="i4PzeWImW-_iDJPN7Owe-7" target="i4PzeWImW-_iDJPN7Owe-8">
           <mxGeometry relative="1" as="geometry" />
@@ -56,10 +56,46 @@
           <mxGeometry x="33.75" y="579.37" width="395" height="121.25" as="geometry" />
         </mxCell>
         <mxCell id="i4PzeWImW-_iDJPN7Owe-39" value="OnServerConnect(conn);" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
-          <mxGeometry x="156.88" y="740" width="148.75" height="60" as="geometry" />
+          <mxGeometry x="156.88" y="740" width="148.75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-1" source="i4PzeWImW-_iDJPN7Owe-58" target="i4PzeWImW-_iDJPN7Owe-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-58" value="OnServerReadyMessageInternal" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
+          <mxGeometry x="110.63" y="810" width="203.12" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-1" source="i4PzeWImW-_iDJPN7Owe-60" target="i4PzeWImW-_iDJPN7Owe-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-60" value="OnServerReady(NetworkConnectionToClient conn)" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
+          <mxGeometry x="73.28" y="880" width="277.81" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-1" source="i4PzeWImW-_iDJPN7Owe-62" target="i4PzeWImW-_iDJPN7Owe-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-62" value="SetClientReady(NetworkConnectionToClient conn)" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
+          <mxGeometry x="68.28" y="950" width="287.82" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-64" value="SpawnObserversForConnection(conn);" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
+          <mxGeometry x="103.28" y="1020" width="217.81" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-69" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-1" source="i4PzeWImW-_iDJPN7Owe-66" target="i4PzeWImW-_iDJPN7Owe-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-66" value="OnServerAddPlayerInternal" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
+          <mxGeometry x="428.75" y="910" width="203.12" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-1" source="i4PzeWImW-_iDJPN7Owe-68" target="i4PzeWImW-_iDJPN7Owe-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-68" value="OnServerAddPlayer(NetworkConnectionToClient conn)" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
+          <mxGeometry x="400" y="1000" width="309.69" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-70" value="NetworkServer.AddPlayerForConnection(conn, player);" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-1">
+          <mxGeometry x="397.27000000000004" y="1070" width="315.15" height="40" as="geometry" />
         </mxCell>
         <mxCell id="i4PzeWImW-_iDJPN7Owe-4" value="Client" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="670" y="340" width="670" height="645" as="geometry" />
+          <mxGeometry x="670" y="340" width="680" height="783.75" as="geometry" />
         </mxCell>
         <mxCell id="i4PzeWImW-_iDJPN7Owe-30" value="OnClientConnectInternal()" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
           <mxGeometry x="20" y="60" width="347.5" height="30" as="geometry" />
@@ -94,8 +130,38 @@
         <mxCell id="i4PzeWImW-_iDJPN7Owe-41" value="&lt;div&gt;if (string.IsNullOrWhiteSpace(onlineScene) || onlineScene == offlineScene || Utils.IsSceneActive(onlineScene))&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; clientLoadedScene = false;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; else&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; // Scene message expected from server.&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; clientLoadedScene = true;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; clientReadyConnection = NetworkClient.connection;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
           <mxGeometry x="20" y="280" width="598.75" height="170" as="geometry" />
         </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-4" source="i4PzeWImW-_iDJPN7Owe-44" target="i4PzeWImW-_iDJPN7Owe-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-4" source="i4PzeWImW-_iDJPN7Owe-44" target="i4PzeWImW-_iDJPN7Owe-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="i4PzeWImW-_iDJPN7Owe-44" value="OnClientConnect();" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
           <mxGeometry x="259.38" y="490" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-4" source="i4PzeWImW-_iDJPN7Owe-46" target="i4PzeWImW-_iDJPN7Owe-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-46" value="NetworkClient.Ready();" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
+          <mxGeometry x="157" y="560" width="140.63" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-48" value="connection.Send(new ReadyMessage());" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
+          <mxGeometry x="82.4" y="640" width="222.69" height="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-4" source="i4PzeWImW-_iDJPN7Owe-52" target="i4PzeWImW-_iDJPN7Owe-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-52" value="autoCreatePlayer" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
+          <mxGeometry x="410" y="540" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="i4PzeWImW-_iDJPN7Owe-4" source="i4PzeWImW-_iDJPN7Owe-54" target="i4PzeWImW-_iDJPN7Owe-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-54" value="NetworkClient.AddPlayer();" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
+          <mxGeometry x="387.5" y="621.25" width="175" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-56" value="connection.Send(new AddPlayerMessage());" style="whiteSpace=wrap;html=1;" vertex="1" parent="i4PzeWImW-_iDJPN7Owe-4">
+          <mxGeometry x="379.38" y="700" width="265" height="36.25" as="geometry" />
         </mxCell>
         <mxCell id="i4PzeWImW-_iDJPN7Owe-12" value="NetworkManager" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="170" y="-90" width="430" height="680" as="geometry" />
@@ -119,6 +185,12 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="i4PzeWImW-_iDJPN7Owe-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="i4PzeWImW-_iDJPN7Owe-37" target="i4PzeWImW-_iDJPN7Owe-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="i4PzeWImW-_iDJPN7Owe-48" target="i4PzeWImW-_iDJPN7Owe-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4PzeWImW-_iDJPN7Owe-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="i4PzeWImW-_iDJPN7Owe-56" target="i4PzeWImW-_iDJPN7Owe-66">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
